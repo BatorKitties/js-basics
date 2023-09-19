@@ -106,3 +106,37 @@ while (i >= 1) {
 //the condition is i >= 1, so the loop will continue as long as i is greater than or equal to 1
 //the incrementor is i--, so after each iteration of the loop i will decrease by 1
 //so the first time the loop runs i = 5, 5 is greater than or equal to 1 so the loop will run
+
+//theres also a do while loop
+//do while loops have 2 parts
+//1. the condition
+//2. the incrementor
+//the condition is the condition that must be met for the loop to continue
+//the incrementor is what happens to the starting condition after each iteration of the loop
+//for example
+do {
+  console.log("Hello World"); //this will print Hello World 5 times
+  i++; //this is the incrementor
+} while (i < 5); //i < 5 is the condition
+//the condition is i < 5, so the loop will continue as long as i is less than 5
+//the incrementor is i++, so after each iteration of the loop i will increase by 1
+
+//for in loops are used to loop through the properties of an object
+//for example
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York",
+}; //this is an object
+for (let key in person) console.log(key); //this will print name, age, city
+//key is the name of the variable that will be used to store the property name
+//in this case the property names are name, age, city
+//so key will be name, age, city
+
+//for of loops are used to loop through the elements of an array
+//for example
+const colors = ["red", "green", "blue"]; //this is an array
+for (let color of colors) console.log(color); //this will print red, green, blue
+//color is the name of the variable that will be used to store the element
+//in this case the elements are red, green, blue
+//so color will be red, green, blue
