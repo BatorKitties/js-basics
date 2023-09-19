@@ -140,3 +140,11 @@ for (let color of colors) console.log(color); //this will print red, green, blue
 //color is the name of the variable that will be used to store the element
 //in this case the elements are red, green, blue
 //so color will be red, green, blue
+
+//we can also use loops to loop through a string
+//for example
+const str = "Hello World"; //this is a string
+for (let char of str) console.log(char); //this will print H, e, l, l, o, , W, o, r, l, d
+//char is the name of the variable that will be used to store the character
+//in this case the characters are H, e, l, l, o, , W, o, r, l, d
+//so char will be H, e, l, l, o, , W, o, r, l, d
