@@ -148,3 +148,21 @@ for (let char of str) console.log(char); //this will print H, e, l, l, o, , W, o
 //char is the name of the variable that will be used to store the character
 //in this case the characters are H, e, l, l, o, , W, o, r, l, d
 //so char will be H, e, l, l, o, , W, o, r, l, d
+
+//we can also do nested loops
+//nested loops are loops inside loops
+//for example
+for (let i = 0; i < 5; i++) {
+  //this is the outer loop
+  for (let j = 0; j < 5; j++) {
+    //this is the inner loop
+    console.log("Hello World"); //this will print Hello World 25 times
+  }
+}
+//the outer loop will run 5 times
+//the inner loop will run 5 times for each iteration of the outer loop
+//iteration means each time the loop runs
+//so the inner loop will run 5 times 5 times
+//so the inner loop will run 25 times
+//so Hello World will be printed 25 times
+//j stands for the inner loop and i stands for the outer loop
