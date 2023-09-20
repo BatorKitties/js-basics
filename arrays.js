@@ -157,3 +157,8 @@ for (let key in person) console.log(key); //this will loop through the object
 //we take the object name which is person then add for in then add the variable name which is key then add console.log then add the variable name which is key
 //the for in loop will loop through the object and show each key in the console
 //the for of loop is used to loop through an array or string
+
+//the ... is called the spread operator and it is used to spread the elements of an array
+//for example
+const arr = [1, 2, 3];
+console.log(...arr); //this will print 1 2 3
