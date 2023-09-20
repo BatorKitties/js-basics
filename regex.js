@@ -208,4 +208,137 @@ let groupWord2 = /(t|T)he/g; //this will match any word that starts with t or T 
 
 //another thing we can do with groups is use them with the {} to match a specific number of characters
 //for example
-let groupWord3 = /(t|T){2,3/g; //this will match any word that starts with t or T and is between 2 and 3 characters long
+let groupWord3 = /(t|T){2,3}/g; //this will match any word that starts with t or T and is between 2 and 3 characters long
+//whatever you put inside the () is what it will match and whatever you put inside the {} is how many of those characters it will match
+//you can also put the escaped \. after the {} to match a period with the text
+//for example
+let groupWord4 = /(t|T){2,3}\./g; //this will match any word that starts with t or T and is between 2 and 3 characters long and ends in a period
+//this will match t., T., tt., TT., etc
+
+//another important thing is the ^ character
+//the ^ character matches the beginning of a string or line
+//for example
+let beginWord = /^hello/g; //this will match any word that starts with hello or with h
+//although it cant match a letter or word that isnt at the beginning of the string or line
+//because the ^ is the very beginning of the entire chunk of text
+//so it cant match anything that isnt at the beginning of the entire chunk of text
+
+//if we wanted to do it per each individual line of text we would use the m flag
+//for example
+let beginWord2 = /^hello/gm; //this will match any word that starts with hello or with h
+//what the m flag is doing is saying that the ^ is the beginning of each adn every line of text that we have
+//instead if the actual statement as a whole
+
+//another thing we could use is the $ character
+//the $ character matches the end of a string or line of text
+//for example
+let endWord = /\.$/g; //this will match any word that ends with a period
+//although it cant match a letter or word that isnt at the end of the string or line
+//but just as with the ^ character we can use the m flag to match the end of each period in all lines or strings of text
+//for example
+let endWord2 = /\.$/gm; //this will match any word that ends with a period
+
+//theres also the look ahead and look behind
+//the look ahead is the ?= character
+//the look behind is the ?<= character
+//the look ahead is used to match a pattern followed by a specific pattern
+//the look behind is used to match a pattern preceded by a specific pattern
+//for example
+let lookAheadWord = /hello(?= world)/g; //this will match any word that starts is followed by world
+//this will match hello world, hello world, hello world, etc
+//the ?= is whats saying look ahead of us
+//and the = is whats saying match the pattern that comes after the =  saying its positive
+
+//now the look behind is the opposite
+//for example
+let lookBehindWord = /(?<=hello) world/g; //this will match any space that is before world and is preceded by hello
+//this will match the spaces before the words or letters but not the actual words or letters
+//the < is whats saying look behind us
+//and the = is whats saying match the pattern that comes after the =  saying its positive
+
+//thats what these look ahead and look behind are doing they allow you to look at things
+//that either happen before or after the thing you want to capture
+//but it doesnt actually capture or select the thing youre looking behind or ahead for
+
+//theres also the negative look ahead and negative look behind
+//the negative look ahead is the ?! character
+//the negative look behind is the ?<! character
+//the negative look ahead is used to match a pattern not followed by a specific pattern
+//the negative look behind is used to match a pattern not preceded by a specific pattern
+//for example
+let negLookAheadWord = /hello(?! world)/g; //this will match anything is not followed by world
+//the ?! is whats saying look ahead of us
+//and the ! is whats saying match the pattern that comes after the !  saying its negative
+
+//now the negative look behind is the opposite
+//for example
+let negLookBehindWord = /(?<!hello) world/g; //this will take all the text and leave out the spaces before the words or letters so opposite of the look behind
+//the < is whats saying look behind us
+//and the ! is whats saying match the space that comes before the word hello  saying its negative
+
+//now were gonna be looking into implementing regex to check for a phone number
+//this is a great example because it can be really simple and get more complex as you add things
+//this will help work on your skills n regular expressions
+
+//were gonna create a phone number
+1234567890;
+//we have three, three and four digits here
+//this is going to be the easiest phone number to check for because all we need to do is check for 10 characters in a row
+//so we can say
+let phoneNum = /\d{10}/g; //this will match any phone number that is 10 digits long
+//this will match 1234567890, 0987654321, 1234567890, etc
+
+//we could also have different types of phone numbers like this one so we need to be able to account for that too
+123 - 456 - 7890;
+//so were gonna enable the m flag to search for each line of text individually to make sure that they all still work
+//so instead of just checking for 10 characters in a row we need to check for groupings
+//for example
+let phoneNum2 = /\d{3}-?\d{3}-?\d{4}/gm; //this will match any phone number that is 10 digits long and has a - in between the numbers the ? is saying that the - is optional
+//this will match 1234567890, 0987654321, 1234567890, 123-456-7890, 098-765-4321, 123-456-7890, etc
+//since the - is optional it will match with or without the - in between the numbers
+//you could also write the phone number by just putting a space in between the numbers
+//which is also common but we again need to account for that
+//so we could do this
+let phoneNum3 = /\d{3}[ -]?\d{3}[ -]?\d{4}/gm; //this will match any phone number that is 10 digits long and has a - or a space in between the numbers the ? is saying that the - or space is optional
+//the [] is saying that it can be either a - or a space and any form of the - or space is optional and will match
+//this will match 1234567890, 0987654321, 1234567890, 123-456-7890, 098-765-4321, 123-456-7890, 123 456 7890, 098 765 4321, 123 456 7890, etc
+
+//now lets say that the end result is that we wanna take ant phone number that were given
+//and convert it to just 10 numbers in a row with no spaces or dashes no parentheses
+//what were gonna need to do is capture all of our digits
+//for example
+let phoneNum4 = /(\d{3})[ -]?(\d{3})[ -]?(\d{4})/gm; //this will match any phone number that is 10 digits long and has a - or a space in between the numbers the ? is saying that the - or space is optional
+//this will show up the different matches and groups and it will all capture separate sections of the digits
+
+//you can select the different groups by using the $ character
+//for example
+$1$2$3; //this will select the first group, second group, and third group
+//so 123 456 7890 what this is doing is taking the different groups and putting them one after another
+
+//you could also name your groups
+//for example
+let phoneNum5 =
+  /(?<areaCode>\d{3})[ -]?(?<firstThree>\d{3})[ -]?(?<lastFour>\d{4})/gm; //this will match any phone number that is 10 digits long and has a - or a space in between the numbers the ? is saying that the - or space is optional
+//this will name the 3 groups so we can select them by name and it will be easier to find them or know which group is which
+
+//now lets look at another example where the ( ) are around the area code
+//now we need to account for the parentheses around the area code
+//so we can do this
+let phoneNum6 = /\(?(?<areacode>\d{3})\)?[ -]?(\d{3})[ -]?(\d{4})/gm; //this will show up the area code with the parentheses around it
+//this will match 1234567890, 0987654321, 1234567890, 123-456-7890, 098-765-4321, 123-456-7890, 123 456 7890, 098 765 4321, 123 456 7890, (123)4567890, (098)7654321, (123)4567890, etc
+
+//another type of number is if there a +1 in front of the number
+//which we need to account for as well
+//so we can do this
+let phoneNum7 =
+  /((\+1)[ -])?\(?(?<areacode>\d{3})\)?[ -]?(\d{3})[ -]?(\d{4})/gm; //this will show up the +1 in front of the numbers
+//its will also show up just the +1 as well as the +1 with a space
+
+//theres also a none capturing group
+//the none capturing group is the ?: character
+//this will not check for something with a group
+//for example
+let phoneNum8 = /(?:(\+1)[ -])?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}/gm; //this will be a none capturing group which will remove the +1 with the space and only show the +1 with no space
+
+//now there 4 capturing groups
+$1$2$3$4; //and this will print all our groups and numbers exactly like we want them
