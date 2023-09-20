@@ -66,3 +66,12 @@ function greet(name, middleName, japaneseName) {
 }
 
 greet("Bator", "Autumn", "Aki"); //this is a function call and Bator, Autumn and Aki are the arguments which are the values of the parameters
+
+//how to use the ... operator for returning a truncated string
+//example
+function truncateString(str, num) {
+  //this function takes 2 parameters, the string and the number to truncate the string
+  //your code goes here
+  return str.slice(0, num) + "...";
+}
+console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8)); //this will print A-tisket...
