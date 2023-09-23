@@ -154,3 +154,12 @@ class Bird {
 let duck = new Bird("Donald");
 console.log(duck instanceof Bird); //this will print true because the duck is an instance of the Bird class
 //class is a template for creating objects you can use it to create objects
+//for example
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+let dog = new Dog("Rex");
+console.log(dog.name); //this will print Rex because the dog is an instance of the Dog class
+//the instanceof method returns true if the object is an instance of the class

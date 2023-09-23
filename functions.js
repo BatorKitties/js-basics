@@ -137,3 +137,49 @@ let funModule = (function () {
   };
 })();
 //this will print Singing to an awesome tune
+
+//Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope: INPUT -> PROCESS -> OUTPUT
+
+//Functional programming is about:
+
+//1.Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+
+//2.Pure functions - the same input always gives the same output
+
+//3.Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
+
+//lets use this example of preparing tea for the team
+//Call the getTea function to get 40 cups of tea for the team, and store them in the tea4TeamFCC variable.
+//for example
+const prepareTea = () => "greenTea";
+const getTea = (numOfCups) => {
+  const teaCups = [];
+  for (let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
+  }
+  return teaCups;
+};
+const tea4TeamFCC = getTea(40);
+console.log(tea4TeamFCC);
+//this will print 40 cups of green tea
+
+//now lets do two types of tea green tea and black tea and store them in the tea4GreenTeamFCC and tea4BlackTeamFCC variables to get 27 cups of green tea and 13 cups of black tea
+//for example
+const prepareGreenTea = () => "greenTea";
+const prepareBlackTea = () => "blackTea";
+const gEtTea = (prepareTea, numOfCups) => {
+  const teaCups = [];
+  for (let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
+  }
+  return teaCups;
+};
+
+const tea4GreenTeamFCC = getTea(prepareGreenTea, 27);
+const tea4BlackTeamFCC = getTea(prepareBlackTea, 13);
+console.log(tea4GreenTeamFCC);
+console.log(tea4BlackTeamFCC);
+//this will print 27 cups of green tea and 13 cups of black tea
+//the for loop will run 27 times for the green tea and 13 times for the black tea and push the teaCup into the teaCups array
