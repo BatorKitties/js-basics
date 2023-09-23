@@ -540,3 +540,19 @@ weight.getWeight(); //this will return 15
 
 //up until now all of these have been constructor functions and diffrent examples of them and ways to use them
 //they are used to create objects so thats why they are put in the objects section
+
+//there are other ways to create objects
+//one way is to use the class keyword
+//the class keyword declares a new function
+//the class keyword is a syntax to create a constructor function
+//the class keyword is just a syntax to create a constructor function
+//for example
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+//this is the same as
+function Dog(name) {
+  this.name = name;
+}
