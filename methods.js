@@ -163,3 +163,12 @@ class Dog {
 let dog = new Dog("Rex");
 console.log(dog.name); //this will print Rex because the dog is an instance of the Dog class
 //the instanceof method returns true if the object is an instance of the class
+//for example
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+}
+let cat = new Cat("Tom");
+console.log(cat instanceof Cat); //this will print true because the cat is an instance of the Cat class
+//the instanceof method returns false if the object is not an instance of the class
