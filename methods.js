@@ -127,3 +127,30 @@ function truncateString(str, num) {
 }
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
 //this will print A-tisket... because it returns the truncated string meaning it returns the string with ... at the end
+
+//theres also the hasOwnProperty method
+//the hasOwnProperty method returns true if the property is found in the object
+//for example
+let myObj = {
+  top: "hat",
+  bottom: "pants",
+};
+console.log(myObj.hasOwnProperty("top")); //this will print true because the property top is found in the object
+//the hasOwnProperty method returns false if the property is not found in the object
+//for example
+let myObjj = {
+  top: "hat",
+  bottom: "pants",
+};
+console.log(myObjj.hasOwnProperty("middle")); //this will print false because the property middle is not found in the object
+
+//the instanceof method is used to check if the object is an instance of the class
+//for example
+class Bird {
+  constructor(name) {
+    this.name = name;
+  }
+}
+let duck = new Bird("Donald");
+console.log(duck instanceof Bird); //this will print true because the duck is an instance of the Bird class
+//class is a template for creating objects you can use it to create objects
