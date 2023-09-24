@@ -183,3 +183,227 @@ console.log(tea4GreenTeamFCC);
 console.log(tea4BlackTeamFCC);
 //this will print 27 cups of green tea and 13 cups of black tea
 //the for loop will run 27 times for the green tea and 13 times for the black tea and push the teaCup into the teaCups array
+
+//The last challenge was a step closer to functional programming principles, but there is still something missing.
+//We didn't alter the global variable value, but the function incrementer would not work without the global variable fixedValue being there.
+//Another principle of functional programming is to always declare your dependencies explicitly.
+//This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.
+//There are several good consequences from this principle.
+//The function is easier to test, you know exactly what input it takes, and it won't depend on anything else in your program.
+//This can give you more confidence when you alter, remove, or add new code.
+//You would know what you can or cannot change and you can see where the potential traps are.
+//Finally, the function would always produce the same output for the same set of inputs, no matter what part of the code executes it.
+
+//Let's update the incrementer function to clearly declare its dependencies.
+//Write the incrementer function so it takes an argument, and then returns a result after increasing the value by one.
+//for example
+//the global variable
+var fixedValue = 4;
+
+function incrementer(value) {
+  //the value is the argument
+  return value + 1;
+}
+var newValue = incrementer(fixedValue); //should equal 5
+console.log(fixedValue); //should print 4
+//the newValue is the new value of the fixedValue
+
+//you cant return without an argument which was the problem in the last challenge
+//So far, we have seen two distinct principles for functional programming:
+//Don't alter a variable or object - create new variables and objects and return them if need be from a function. Hint: using something like const newArr = arrVar, where arrVar is an array will simply create a reference to the existing variable and not a copy. So changing a value in newArr would change the value in arrVar.
+//Declare function parameters - any computation inside a function depends only on the arguments passed to the function, and not on any global object or variable.
+//Adding one to a number is not very exciting, but we can apply these principles when working with arrays or more complex objects.
+
+//Rewrite the code so the global array bookList is not changed inside either function. The add function should add the given bookName to the end of the array passed to it and return a new array (list).
+//The remove function should remove the given bookName from the array passed to it.
+
+//Note: Both functions should return an array, and any new parameters should be added before the bookName parameter.
+//for example
+//the global variable
+var bookList = [
+  "The Hound of the Baskervilles",
+  "On The Electrodynamics of Moving Bodies",
+  "Philosophiæ Naturalis Principia Mathematica",
+  "Disquisitiones Arithmeticae",
+];
+//this global variable is a book list
+function add(arr, bookName) {
+  //this is a function declaration
+  let newArr = [...arr]; //this is a new array
+  newArr.push(bookName); //this will push the bookName into the newArr
+  return newArr; //this will return the newArr
+}
+
+function remove(arr, bookName) {
+  //this is a function declaration
+  let newArr = [...arr]; //this is a new array
+  if (newArr.indexOf(bookName) >= 0) {
+    //this will check if the bookName is in the newArr
+    newArr.splice(newArr.indexOf(bookName), 1); //this will remove the bookName from the newArr
+    return newArr; //this will return the newArr
+  }
+}
+//this will print the bookList and add and remove the bookNames from the bookList
+console.log(add(bookList, "A Brief History of Time"));
+
+//so far we have learned to use pure functions to avoid side effects in a program.
+//Also, we have seen the value in having a function only depend on its input arguments.
+//This is only the beginning.
+//As its name suggests, functional programming is centered around a theory of functions.
+//It would make sense to be able to pass them as arguments to other functions, and return a function from another function.
+//Functions are considered first class objects in JavaScript, which means they can be used like any other object.
+//They can be saved in variables, stored in an object, or passed as function arguments.
+
+//Let's start with some simple array functions, which are methods on the array object prototype.
+//In this exercise we are looking at Array.prototype.map(), or more simply map.
+//The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element.
+//It does this without mutating the original array.
+//When the callback is used, it is passed three arguments.
+//The first argument is the current element being processed.
+//The second is the index of that element and the third is the array upon which the map method was called.
+//See below for an example using the map method on the users array to return a new array containing only the names of the users as elements.
+//For simplicity, the example only uses the first argument of the callback.
+//for example
+const users = [
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
+];
+const names = users.map((user) => user.name);
+console.log(names); //this will print John, Amy, camperCat
+
+//The watchList array holds objects with information on several movies.
+//Use map to pull the title and rating from watchList and save the new array in the rating variable.
+//The code in the editor currently uses a for loop to do this, replace the loop functionality with your map expression.
+//for example
+//the global variable
+var watchList = [
+  {
+    Title: "Inception",
+    Year: "2010",
+    Rated: "PG-13",
+    Released: "16 Jul 2010",
+    Runtime: "148 min",
+    Genre: "Action, Adventure, Crime",
+    Director: "Christopher Nolan",
+    Writer: "Christopher Nolan",
+    Actors: "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+    Plot: "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    Language: "English, Japanese, French",
+    Country: "USA, UK",
+    Awards: "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMjAxMzYwNjI4NF5BMl5BanBnXkFtZTYwMDk0MDE5._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.8",
+    imdbVotes: "1,446,708",
+    imdbID: "tt1375666",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Interstellar",
+    Year: "2014",
+    Rated: "PG-13",
+    Released: "07 Nov 2014",
+    Runtime: "169 min",
+    Genre: "Adventure, Drama, Sci-Fi",
+    Director: "Christopher Nolan",
+    Writer: "Jonathan Nolan, Christopher Nolan",
+    Actors: "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    Plot: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    Language: "English",
+    Country: "USA, UK",
+    Awards: "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMjAwMTUwNjcwNl5BMl5BanBnXkFtZTYwMDk0MDE5._V1_SX300.jpg",
+    Metascore: "74",
+    imdbRating: "8.6",
+    imdbVotes: "910,366",
+    imdbID: "tt0816692",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "The Dark Knight",
+    Year: "2008",
+    Rated: "PG-13",
+    Released: "18 Jul 2008",
+    Runtime: "152 min",
+    Genre: "Action, Adventure, Crime",
+    Director: "Christopher Nolan",
+    Writer:
+      "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+    Actors: "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    Plot: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    Language: "English, Mandarin",
+    Country: "USA, UK",
+    Awards: "Won 2 Oscars. Another 153 wins & 159 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTMxNTMwNzM4OV5BMl5BanBnXkFtZTYwMDk0MDE5._V1_SX300.jpg",
+    Metascore: "82",
+    imdbRating: "9.0",
+    imdbVotes: "2,122,415",
+    imdbID: "tt0468569",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Batman Begins",
+    Year: "2005",
+    Rated: "PG-13",
+    Released: "15 Jun 2005",
+    Runtime: "140 min",
+    Genre: "Action, Adventure",
+    Director: "Christopher Nolan",
+    Writer:
+      "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+    Actors: "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+    Plot: "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.",
+    Language: "English, Urdu, Mandarin",
+    Country: "USA, UK",
+    Awards: "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTYwODQzNjAzMl5BMl5BanBnXkFtZTYwMDk0MDE5._V1_SX300.jpg",
+    Metascore: "70",
+    imdbRating: "8.3",
+    imdbVotes: "1,183,879",
+    imdbID: "tt0372784",
+    Type: "movie",
+    Response: "True",
+  },
+  {
+    Title: "Avatar",
+    Year: "2009",
+    Rated: "PG-13",
+    Released: "18 Dec 2009",
+    Runtime: "162 min",
+    Genre: "Action, Adventure, Fantasy",
+    Director: "James Cameron",
+    Writer: "James Cameron",
+    Actors: "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+    Plot: "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+    Language: "English, Spanish",
+    Country: "USA, UK",
+    Awards: "Won 3 Oscars. Another 80 wins & 121 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTYwOTMwOTM4Ml5BMl5BanBnXkFtZTYwMDk0MDE5._V1_SX300.jpg",
+    Metascore: "83",
+    imdbRating: "7.9",
+    imdbVotes: "1,025,471",
+    imdbID: "tt0499549",
+    Type: "movie",
+    Response: "True",
+  },
+];
+//this global variable is a watch list
+//the global variable should be const instead of var because it wont change
+//the global variable should be an array because its a list of movies
+const ratings = watchList.map((item) => ({
+  title: item["Title"],
+  rating: item["imdbRating"],
+}));
+console.log(JSON.stringify(ratings));
+//this will print the title and rating of the movies in the watch list
+//the JSON.stringify() method converts a JavaScript object or value to a JSON string
+//JSON is a syntax for storing and exchanging data
