@@ -172,3 +172,100 @@ class Cat {
 let cat = new Cat("Tom");
 console.log(cat instanceof Cat); //this will print true because the cat is an instance of the Cat class
 //the instanceof method returns false if the object is not an instance of the class
+
+//theres a method called map which handles the details of iterating over an array
+//This helps to avoid semantic errors, like the "Off By One Errors"
+//the map method can be used in place of a for loop why? because it is a higher order function that accepts a callback function as an argument
+//for example
+let oldArray = [1, 2, 3, 4, 5]; //this is the old array
+let newArray = oldArray.map(function (val) {
+  return val + 3;
+});
+console.log(newArray); //this will print [4, 5, 6, 7, 8] because it adds 3 to each element in the array
+//so 1 would be 4, 2 would be 5, 3 would be 6, 4 would be 7, 5 would be 8
+//the val is the current value of the array
+//the newArray is the new array
+//the numbers in the array are the elements of the array
+
+//lets try it with this example
+//consider this scenario: you are browsing the we in your browser and want to track the tabs you have opened lets try to model this using some simple object oriented code
+//a window object is made up of tabs and you usually have more than one window open
+//the titles of each open site in each window object is held in an array
+//after working in the browser (opening new tabs, merging windows, and closing tabs), you want to print the tabs that are still open
+//closed tabs are removed from the array and new tabs (for simplicity) get added to the end of it
+//the code editor shows an implementation of this functionality with functions for tabOpen(), tabClose(), and join()
+//the array tabs is part of the Window object that stores the name of the open pages
+//change window.prototype.tabClose so it removes the correct tab
+//for example
+function Window(tabs) {
+  this.tabs = tabs; //we keep a record of the array inside the object
+}
+//when you join two windows into one window
+Window.prototype.join = function (otherWindow) {
+  this.tabs = this.tabs.concat(otherWindow.tabs);
+  return this;
+};
+//when you open a new tab at the end
+Window.prototype.tabOpen = function (tab) {
+  this.tabs.push("new tab"); //let's open a new tab for now
+  return this;
+};
+//when you close a tab
+Window.prototype.tabClose = function (index) {
+  //only change code below this line
+  var tabsBeforeIndex = this.tabs.splice(0, index); //get the tabs before the tab
+  var tabsAfterIndex = this.tabs.splice(1); //get the tabs after the tab
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); //join them together
+
+  return this;
+};
+//let's create three browser windows
+var workWindow = new Window([
+  "GMail",
+  "Inbox",
+  "Work mail",
+  "Docs",
+  "freeCodeCamp",
+]); //your mailbox, drive, and other work sites
+var socialWindow = new Window(["FB", "Gitter", "Reddit", "Twitter", "Medium"]); //social sites
+var videoWindow = new Window(["Netflix", "YouTube", "Vimeo", "Vine"]); //entertainment sites
+//now perform the tab opening, closing, and other operations
+var finalTabs = socialWindow
+  .tabOpen() //open a new tab for cat memes
+  .join(videoWindow.tabClose(2)) //close third tab in video window and join
+  .join(workWindow.tabClose(1).tabOpen());
+console.log(finalTabs.tabs); //this will print ["FB", "Gitter", "Reddit", "Twitter", "Medium", "new tab", "Netflix", "YouTube", "Vine", "GMail", "Work mail", "Docs", "freeCodeCamp", "new tab"]
+//because it opens a new tab for cat memes, closes the third tab in the video window and joins it, closes the first tab in the work window and opens a new tab for it
+//the tabOpen() method opens a new tab for cat memes
+//the join() method joins the video window and closes the third tab in the video window
+//the tabClose() method closes the third tab in the video window
+
+//the solution to window.prototype.tabClose is
+Window.prototype.tabClose = function (index) {
+  //only change code below this line
+  var tabsBeforeIndex = this.tabs.splice(0, index); //get the tabs before the tab
+  var tabsAfterIndex = this.tabs.splice(1); //get the tabs after the tab
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); //join them together
+
+  return this; //return the window object
+};
+//If you haven't already figured it out, the issue in this challenge was with the splice call in the tabClose() function.
+//Unfortunately, splice changes the original array it is called on, so the second call to it used a modified array, and gave unexpected results.
+//and the concat method is used to join two or more arrays
+//One of the core principles of functional programming is to not change things.
+//Changes lead to bugs.
+//Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect.
+//A function, ideally, should be a pure function, meaning that it does not cause any side effects.
+//Let's try to master this discipline and not alter any variable or object in our code.
+
+//fill in the code for the function incrementer so it returns the value of the global variable fixedValue increased by one.
+//for example
+//the global variable
+var fixedValue = 4;
+
+function incrementer() {
+  return fixedValue + 1;
+}
+var newValue = incrementer(); //should equal 5
+console.log(fixedValue); //should print 4
+//the newValue is the new value of the fixedValue
