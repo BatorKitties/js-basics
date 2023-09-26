@@ -230,3 +230,10 @@ console.log(thisMyAge > 10 ? "I am over 10" : "I am under 10"); //this will show
 //the || operator is used to check if one or more conditions are true
 //the ! operator is used to reverse the result of a condition
 //the ? operator is used to write conditional statements
+
+//another oerator is the ... operator
+//the ... operator is called the spread operator
+//the ... operator is used to spread an array into multiple arguments
+//for example
+let thisArray = [1, 2, 3];
+console.log(...thisArray); //this will show 1 2 3 in the console

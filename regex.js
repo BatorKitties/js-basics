@@ -342,3 +342,12 @@ let phoneNum8 = /(?:(\+1)[ -])?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}/gm; //this will b
 
 //now there 4 capturing groups
 $1$2$3$4; //and this will print all our groups and numbers exactly like we want them
+
+//more regex practice
+let thisRegex = /hello/;
+let thisStr = "hello world";
+let thisResult = thisStr.match(thisRegex);
+console.log(thisResult);
+//this will print ["hello"]
+//the match method returns an array of the matches
+//in this case the match is hello

@@ -15,3 +15,10 @@ let selectedColor = null; //null literal we use null when we want to clear the v
 //undefined example (let name;)
 //null is a value that is assigned to a variable but has no value
 //null example (let name = null;) you can change the value of null to a string, number, boolean, undefined
+
+//more primitive types practice
+let thisName = "Bator"; //string literal
+let thisAge = 20; //number literal
+let Approved = true; //boolean literal you can also use false
+let thisFirstName = undefined; //undefined literal
+let thisColor = null; //null literal we use null when we want to clear the value of a variable

@@ -32,86 +32,107 @@ console.log(confirmEnding("Bastian", "n")); //this will print true
 //for example
 const string = "Hello World";
 console.log(string.startsWith("Hello")); //this will print true because hello is the first word in the string
+
 //endsWith method is used to check if the string ends with the given string or not
 //for example
 const thisStr = "Hello World";
 console.log(thisStr.endsWith("World")); //this will print true because world is the last word in the string
+
 //includes method is used to check if the string includes the given string or not
 //for example
 const thisString = "Hello World";
 console.log(thisString.includes("World")); //this will print true because world is in the string
+
 //repeat method is used to repeat the string
 //for example
 const thisStringg = "Hello World";
 console.log(thisStringg.repeat(3)); //this will print Hello World Hello World Hello World because it repeats the string 3 times
+
 //length method is used to get the length of the string
 //for example
 const thisIsString = "Hello World";
 console.log(thisIsString.length); //this will print 11 because the string has 11 characters the space is also a character
+
 //indexOf method is used to get the index of the string
 //for example
 const thisIsAString = "Hello World";
 console.log(thisIsAString.indexOf("Hello")); //this will print 0 because the string has an index of 0 Hello starts at 0
+
 //lastIndexOf method is used to get the last index of the string
 //for example
 const thisIsAStringg = "Hello World";
 console.log(thisIsAStringg.lastIndexOf("World")); //this will print 6 because the string has an index of 6 the space is also counts and it is the last index World starts at 6
+
 //slice method is used to get the slice of the string
 //for example
 const thisIsAStr = "Hello World";
 console.log(thisIsAStr.slice(0, 5)); //this will print Hello because the slice starts at 0 and ends at 5
+
 //substring method is used to get the substring of the string
 //for example
 const thisIsAStri = "Hello World";
 console.log(thisIsAStri.substring(0, 5)); //this will print Hello because the substring starts at 0 and ends at 5 just like the slice
+
 //substr method is used to get the substr of the string
 //for example
 const thisIsAStrin = "Hello World";
 console.log(thisIsAStrin.substr(0, 5)); //this will print Hello because the substr starts at 0 and ends at 5 just like the slice and substring
+
 //replace method is used to replace the string
 //for example
 const thisIsAStrinG = "Hello World";
 console.log(thisIsAStrinG.replace("Hello", "Hi")); //this will print Hi World because it replaces Hello with Hi, hi is the new string and hello is the old string
+
 //toLowerCase method is used to convert the string to lowercase
 //for example
 const thisIsAStrinGG = "Hello World";
 console.log(thisIsAStrinGG.toLowerCase()); //this will print hello world because it converts the string to lowercase
+
 //toUpperCase method is used to convert the string to uppercase
 //for example
 const thisIsAStrinGGG = "Hello World";
 console.log(thisIsAStrinGGG.toUpperCase()); //this will print HELLO WORLD because it converts the string to uppercase
+
 //trim method is used to trim the string
 //for example
 const thisIsStri = "Hello World";
 console.log(thisIsStri.trim()); //this will print Hello World because it trims the string it removes the spaces (whitespaces) from the start and end of the string without modifying the original string
+
 //split method is used to split the string
 //for example
 const thisIsStrin = "Hello World";
 console.log(thisIsStrin.split(" ")); //this will print ["Hello", "World"] because it splits the string at the space this makes it split into two strings inside an array
+
 //match method is used to match the string
 //for example
 const thisIsStrinG = "Hello World";
 console.log(thisIsStrinG.match("Hello")); //this will print ["Hello"] because it matches the string and returns it inside an array
+
 //search method is used to search the string
 //for example
 const thisIsStrinGG = "Hello World";
 console.log(thisIsStrinGG.search("Hello")); //this will print 0 because it searches the string and returns the index of the string
+
 //charCodeAt method is used to get the char code of the string
 //for example
 const thisIsStrinGGG = "Hello World";
 console.log(thisIsStrinGGG.charCodeAt(0)); //this will print 72 because it gets the char code of the string the char code of H is 72
+
 //fromCharCode method is used to get the char code from the string
 //for example
 const inThisString = "Hello World";
 console.log(String.fromCharCode(72)); //this will print H because it gets the char code from the string the char code of H is 72
-//concat method is used to concat the string
+
+//concat method is used to concat the string meaning it combines the strings
 //for example
 const inThisStringg = "Hello World";
 console.log(inThisStringg.concat(" ", "Bator")); //this will print Hello World Bator because it concats the string meaning it combines the strings "" is the space between the strings
+
 //padStart method is used to pad the string from the start
 //for example
 const inThisStringgg = "Hello World";
 console.log(inThisStringgg.padStart(15, "a")); //this will print aaaaaHello World because it pads the string from the start meaning it adds a to the start of the string the 15 is the length of the string
+
 //padEnd method is used to pad the string from the end
 //for example
 const inThisStringggg = "Hello World";
@@ -472,3 +493,87 @@ const squareLIst = (arr) => {
   const squaredIntegers = squaredIntegers.map((num) => Math.pow(num, 2));
   return squaredIntegers;
 };
+
+//easy way to understand concat
+function nonMutatingConcat(original, attach) {
+  return original.concat(attach);
+}
+const first = [1, 2, 3];
+const second = [4, 5];
+console.log(nonMutatingConcat(first, second)); //this will print [1, 2, 3, 4, 5] because it concats the arrays and it joined 123 with 4 and 5
+//you can use concat instead of push
+
+//easy way to understand slice
+function nonMutatingSplice(cities) {
+  return cities.slice(0, 3);
+}
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+console.log(nonMutatingSplice(inputCities)); //this will print ["Chicago", "Delhi", "Islamabad"] because it slices the array from 0 to 3
+//you can use slice instead of splice
+
+//easy way to understand split
+function splitify(str) {
+  //this function takes a string as an argument
+  return str.split(/\W/); //this will split the string at the non word characters
+}
+console.log(splitify("Hello World,I-am code")); //this will print ["Hello", "World", "I", "am", "code"] because it splits the string at the non word characters
+
+//easy way to understand join
+function sentensify(str) {
+  //this function takes a string as an argument
+  return str.split(/\W/).join(" "); //this will split the string at the non word characters and join them with a space
+}
+console.log(sentensify("May-the-force-be-with-you")); //this will print May the force be with you because it splits the string at the non word characters and joins them with a space
+
+//the reduce method is used to reduce the array to a single value
+//for example
+const arrayy = [1, 2, 3, 4, 5];
+const newArrayyy = arrayy.reduce((acc, val) => acc + val);
+console.log(newArrayyy); //this will print 15 because it reduces the array to a single value it adds all the numbers in the array and it gives 15
+//the acc is the accumulator
+//the val is the current value of the array
+//the newArrayyy is the new array
+//the numbers in the array are the elements of the array
+
+//the forEach method is used to iterate over the array
+//for example
+const arrayyy = [1, 2, 3, 4, 5];
+arrayyy.forEach((val) => console.log(val));
+//this will print 1, 2, 3, 4, 5 because it iterates over the array and prints each element of the array
+
+//the sort method is used to sort the array
+//for example
+const arrayyyy = [1, 2, 3, 4, 5];
+arrayyyy.sort((a, b) => a - b);
+console.log(arrayyyy); //this will print [1, 2, 3, 4, 5] because it sorts the array from smallest to largest
+//the a,b is the current value of the array
+//the a - b is the sort function so when you subtract a from b it sorts the array from smallest to largest
+
+//the reverse method is used to reverse the array
+//for example
+const arrayyyyy = [1, 2, 3, 4, 5];
+arrayyyyy.reverse();
+console.log(arrayyyyy); //this will print [5, 4, 3, 2, 1] because it reverses the array
+
+//the replace method is used to replace the string
+//for example
+const stringg = "Hello World";
+stringg.replace("Hello", "Hi");
+console.log(stringg); //this will print Hi World because it replaces Hello with Hi, hi is the new string and hello is the old string
+
+//the every method is used to check if every element in the array passes the test
+//for example
+const arrArray = [1, 2, 3, 4, 5];
+arrArray.every((val) => val > 0);
+console.log(arrArray); //this will print true because every element in the array passes the test
+//the 0 is used to check if every element in the array is greater than 0 if it is it returns true if it is not it returns false
+
+//the some method is used to check if some elements in the array passes the test
+//for example
+const arr = [1, 2, 3, 4, 5];
+arr.some((val) => val > 0);
+console.log(arr); //this will print true because some elements in the array passes the test here all the elements in the array passes the test
+//this is an example of a some method that wont pass the test
+const arrr = [-1, -2, -3, -4, -5];
+arrr.some((val) => val > 0);
+console.log(arrr); //this will print false because some elements in the array passes the test here all the elements in the array dont pass the test here all the elements in the array are negative

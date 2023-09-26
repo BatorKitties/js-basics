@@ -407,3 +407,68 @@ console.log(JSON.stringify(ratings));
 //this will print the title and rating of the movies in the watch list
 //the JSON.stringify() method converts a JavaScript object or value to a JSON string
 //JSON is a syntax for storing and exchanging data
+
+//The arity of a function is the number of arguments it requires.
+//Currying a function means to convert a function of N arity into N functions of arity 1.
+//In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+
+//Here's an example:
+function unCurried(x, y) {
+  return x + y;
+}
+
+function curried(x) {
+  return function (y) {
+    return x + y;
+  };
+}
+
+const curried = (x) => (y) => x + y; //this is a curried function
+
+curried(1)(2);
+//curried(1)(2) would return 3 because the first argument is 1, and the second argument is 2 so it adds 1 + 2 which equals 3
+
+//This is useful in your program if you can't supply all the arguments to a function at one time.
+//You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available.
+//Here's an example using the curried function in the example above:
+const funcForY = curried(1);
+console.log(funcForY(2)); // 3
+
+//Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments.
+//Here's an example:
+function impartial(x, y, z) {
+  return x + y + z; //this will add x + y + z
+}
+
+const partialFn = impartial.bind(this, 1, 2); //this will add 1 + 2
+partialFn(10); // 13
+//currying pretty much adds the arguments together and gives you the sum like doing math
+
+//convert a string to spinal case and return the string in all lowercase letters and words separated by dashes
+//for example
+function spinalCase(str) {
+  //this is a function declaration
+  return str //this will return the string
+    .split(/\s|_|(?=[A-Z])/) //this will split the string into an array
+    .join("-") //this will join the array with -
+    .toLowerCase(); //this will make the string lowercase
+}
+console.log(spinalCase("This Is Spinal Tap")); //this will print this-is-spinal-tap
+//spinal case is all lowercase words joined by dashes
+
+//pig latin is a way of altering english words.
+//the rules are as follows:
+//1. if a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it
+//2. if a word begins with a vowel, just add way at the end
+//translate the provided string to pig latin
+//for example
+function translatePigLatin(str) {
+  //this is a function declaration
+  let consonantRegex = /^[^aeiou]+/; //this is a regular expression
+  let myConsonants = str.match(consonantRegex); //this will match the consonants
+  return myConsonants !== null //this will return the consonants
+    ? str.replace(consonantRegex, "").concat(myConsonants).concat("ay") //this will replace the consonants with nothing and add the consonants and add ay
+    : str.concat("way"); //this will add way
+}
+console.log(translatePigLatin("consonant")); //this will print onsonantcay
+//this will print consonant in pig latin which is onsonantcay

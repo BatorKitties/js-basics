@@ -162,3 +162,12 @@ for (let key in person) console.log(key); //this will loop through the object
 //for example
 const arr = [1, 2, 3];
 console.log(...arr); //this will print 1 2 3
+
+//more arrays practice
+let customers = ["John", "Mary", "Joe", "Jack", "Jill"]; //this is an array literal
+
+//if we want to access an element in the array we use the index number
+//for example
+customers[0]; //this will show John in the console
+//we take the array name which is customers then add square brackets then add the index number which is 0
+console.log(customers[0]); //this will show John in the console

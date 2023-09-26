@@ -556,3 +556,15 @@ class Dog {
 function Dog(name) {
   this.name = name;
 }
+
+//more objects practice
+let Dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: function () {
+    return "This dog has " + dog.numLegs + " legs.";
+  },
+};
+console.log(Dog.name); //this will return Spot
+console.log(Dog.numLegs); //this will return 4
+console.log(Dog.sayLegs()); //this will return This dog has 4 legs.

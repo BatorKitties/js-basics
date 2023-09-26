@@ -12,3 +12,11 @@ console.log(firstName, lastName, age, middleName, japaneseName); //this will sho
 //cannot start with a number (1name)
 //cannot contain a space or hyphen (-)
 //are case-sensitive (name and Name are different) its better to use camelCase
+
+//more variable practice
+let cat = "yuki";
+let dog = "kuro";
+let bird = "momo";
+let fish = "sushi";
+let mouse = "milk";
+console.log(cat, dog, bird, fish, mouse); //this will show the value of the variable in the console

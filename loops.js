@@ -166,3 +166,13 @@ for (let i = 0; i < 5; i++) {
 //so the inner loop will run 25 times
 //so Hello World will be printed 25 times
 //j stands for the inner loop and i stands for the outer loop
+
+//we can also use loops to loop through an array of objects
+//for example
+const people = [
+  { name: "John", age: 30 },
+  { name: "Mike", age: 23 },
+  { name: "Nancy", age: 40 },
+]; //this is an array of objects
+for (let person of people) console.log(person); //this will print {name: "John", age: 30}, {name: "Mike", age: 23}, {name: "Nancy", age: 40}
+//person is the name of the variable that will be used to store the object
