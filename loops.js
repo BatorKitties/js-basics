@@ -176,3 +176,57 @@ const people = [
 ]; //this is an array of objects
 for (let person of people) console.log(person); //this will print {name: "John", age: 30}, {name: "Mike", age: 23}, {name: "Nancy", age: 40}
 //person is the name of the variable that will be used to store the object
+
+//we will be doing a function and a while loop here with summing numbers also using if statements
+//A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is only divisible by 1 and 2. In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
+//Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+//example
+function sumPrimes(num) {
+  if (num <= 1) {
+    return "Numbers lower than 0 dont work here";
+  }
+  let counter = 2;
+  let sum = 0;
+
+  while (counter <= num) {
+    if (isPrime(counter)) {
+      sum += counter;
+    }
+    counter += 1;
+  }
+  return sum;
+}
+
+function isPrime(singleNumber) {
+  let counter = 2;
+  while (counter < singleNumber) {
+    if (singleNumber % counter === 0) {
+      return false;
+    }
+    counter += 1;
+  }
+  return true;
+}
+
+let result = sumPrimes(977);
+console.log(result);
+//this will print 73156
+
+//Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+//Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+//example
+function dropElements(arr, func) {
+  //this is a function with an array and a function
+  while (arr.length > 0 && !func(arr[0])) {
+    //this is a while loop with an array and a function
+    arr.shift(); //this will remove the first element of the array
+  }
+  return arr; //this will return the array
+}
+
+// test here
+dropElements([1, 2, 3, 4], function (n) {
+  return n >= 3;
+});
+//this will print [3, 4]
+//this is a while loop with a function as well
