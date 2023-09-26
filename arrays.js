@@ -171,3 +171,32 @@ let customers = ["John", "Mary", "Joe", "Jack", "Jill"]; //this is an array lite
 customers[0]; //this will show John in the console
 //we take the array name which is customers then add square brackets then add the index number which is 0
 console.log(customers[0]); //this will show John in the console
+
+//Flatten a nested array. You must account for varying levels of nesting.
+//for example
+function steamrollArray(arr) {
+  return arr.flat(Infinity);
+}
+console.log(steamrollArray([1, [2], [3, [[4]]]])); //this will show [1, 2, 3, 4] in the console
+//we take the function name which is steamrollArray then add arr as the parameter then add return then add arr.flat then add Infinity
+//the flat method will flatten the array
+//Infinity is the depth level
+
+//you could also do it by using a for loop
+//for example
+function steamrollArray(arr) {
+  let flat = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flat.push(...steamrollArray(arr[i]));
+    } else {
+      flat.push(arr[i]);
+    }
+  }
+  return flat;
+}
+console.log(steamrollArray([1, [2], [3, [[4]]]])); //this will show [1, 2, 3, 4] in the console
+//we take the function name which is steamrollArray then add arr as the parameter then add let flat = [] then add for loop then add if statement then add flat.push then add spread operator then add steamrollArray then add arr[i] then add else statement then add flat.push then add arr[i]
+//the for loop will loop through the array
+//the if statement will check if the element is an array
+//the else statement will push the element to the flat array
