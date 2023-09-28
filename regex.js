@@ -536,7 +536,7 @@ let phoneNum7 =
 let phoneNum8 = /(?:(\+1)[ -])?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}/gm; //this will be a none capturing group which will remove the +1 with the space and only show the +1 with no space
 
 //now there 4 capturing groups
-
+ 
 $1$2$3$4; //and this will print all our groups and numbers exactly like we want them
 
 //more regex practice

@@ -1,3 +1,4 @@
+
 //arrays practice
 
 //arrays are used to store a list of items

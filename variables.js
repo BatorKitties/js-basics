@@ -13,7 +13,7 @@ let middleName = "Autumn";
 
 let japaneseName = "Aki";
 
-console.log(firstName, lastName, age, middleName, japaneseName); //this will show the value of the variable in the console
+console.log(firstName, lastName, age, middleName, japaneseName);  //this will show the value of the variable in the console
 
 //Variables cannot be a reserved keyword
 

@@ -1,3 +1,4 @@
+
 //constants practice
 let interestRate = 0.3;
 

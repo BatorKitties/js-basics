@@ -1,19 +1,35 @@
+
 //Primitive Types/ value types practice
 let myName = "Bator"; //string literal
+
 let myAge = 20; //number literal
+
 let isApproved = true; //boolean literal you can also use false
+
 let myFirstName = undefined; //undefined literal
+
 let selectedColor = null; //null literal we use null when we want to clear the value of a variable
+
 //there are 5 primitive types in javascript string, number, boolean, undefined, null
+
 //string is a sequence of characters used for text surrounded by quotes '' or "" or ``
+
 //string example ('hello world')
+
 //number is a number without quotes 1, 2, 3, 4, 5 used for numbers and decimals
+
 //number example (1, 2, 3, 4, 5)
+
 //boolean is true or false used for making decisions like if statements
+
 //boolean example (true or false)
+
 //undefined is a value that is not assigned to a variable
+
 //undefined example (let name;)
+
 //null is a value that is assigned to a variable but has no value
+
 //null example (let name = null;) you can change the value of null to a string, number, boolean, undefined
 
 //more primitive types practice

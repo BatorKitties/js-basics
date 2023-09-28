@@ -1,3 +1,4 @@
+
 //functions practice
 function greet() {
   //this is a function declaration

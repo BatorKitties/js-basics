@@ -1,3 +1,4 @@
+
 //Dynamic Typing practice
 
 //javascript is a dynamic language meaning you dont have to specify the type of variable

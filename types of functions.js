@@ -295,6 +295,7 @@ curried(1)(2);
 //You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available.
 
 //Here's an example using the curried function in the example above:
+
 const funcForY = curried(1);
 
 console.log(funcForY(2)); // 3
