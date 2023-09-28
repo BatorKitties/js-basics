@@ -18,13 +18,19 @@ let selectedColor = null; //null literal we use null when we want to clear the v
 
 //more primitive types practice
 let thisName = "Bator"; //string literal
+
 let thisAge = 20; //number literal
+
 let Approved = true; //boolean literal you can also use false
+
 let thisFirstName = undefined; //undefined literal
+
 let thisColor = null; //null literal we use null when we want to clear the value of a variable
 
 //Return an English translated sentence of the passed binary string.
+
 //The binary string will be space separated.
+
 //were using strings and numbers here which are all primitive types
 
 function binaryAgent(str) {
@@ -45,4 +51,5 @@ binaryAgent(
 );
 
 //Return the length of the longest word in the provided sentence.
+
 //Your response should be a number.
