@@ -530,7 +530,7 @@ let phoneNum7 =
 
 //the none capturing group is the ?: character
 
-//this will not check for something with a group
+ //this will not check for something with a group
 
 //for example
 let phoneNum8 = /(?:(\+1)[ -])?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{4}/gm; //this will be a none capturing group which will remove the +1 with the space and only show the +1 with no space

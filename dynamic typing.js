@@ -3,7 +3,7 @@
 
 //javascript is a dynamic language meaning you dont have to specify the type of variable
 
-typeof myName; //is a 'string'
+typeof myName;  //is a 'string'
 
 typeof myAge; //is a 'number'
 

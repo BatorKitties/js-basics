@@ -6,7 +6,7 @@ const str = "Hello World";
 
 console.log(str.endsWith("World")); //this will print true because the w is capital
 
-console.log(str.endsWith("world")); //this will print false because the string is case sensitive
+console.log(str.endsWith("world"));  //this will print false because the string is case sensitive
 
 function endsWith(str, target) {
   //this function takes 2 parameters, the string and the string to check if it ends with

@@ -5,7 +5,7 @@
 
 //for example if we want to display Hello World 5 times on the console
 
-//we can do it like this
+ //we can do it like this
 console.log("Hello World");
 
 console.log("Hello World");

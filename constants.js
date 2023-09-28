@@ -2,7 +2,7 @@
 //constants practice
 let interestRate = 0.3;
 
-interestRate = 1; //this will reassign the value of interestRate to 1 which will show up in the console
+interestRate = 1;  //this will reassign the value of interestRate to 1 which will show up in the console
 
 console.log(interestRate);
 

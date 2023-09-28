@@ -288,7 +288,7 @@ const curried = (x) => (y) => x + y; //this is a curried function
 
 curried(1)(2);
 
-//curried(1)(2) would return 3 because the first argument is 1, and the second argument is 2 so it adds 1 + 2 which equals 3
+ //curried(1)(2) would return 3 because the first argument is 1, and the second argument is 2 so it adds 1 + 2 which equals 3
 
 //This is useful in your program if you can't supply all the arguments to a function at one time.
 

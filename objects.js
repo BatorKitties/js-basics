@@ -1,7 +1,7 @@
 
 //objects/reference types practice
 let person = {
-  firstName: "Bator", //key value pair
+  firstName: "Bator",  //key value pair
   lastName: "Michael",
   age: 20,
   middleName: "Autumn",

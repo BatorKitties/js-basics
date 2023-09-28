@@ -9,7 +9,7 @@
 
 //for example
 let shoppingCart = ["apple", "banana", "orange"]; //this is an array literal
-console.log(shoppingCart); //this will show the array in the console
+console.log(shoppingCart);  //this will show the array in the console
 
 //the square brackets represent an array
 

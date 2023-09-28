@@ -1,8 +1,8 @@
 
-//Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+ //Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 
 function convertHTML(str) {
-  
+
   // Split by character to avoid problems.
 
   var temp = str.split("");

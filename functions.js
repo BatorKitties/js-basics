@@ -3,7 +3,7 @@
 function greet() {
   //this is a function declaration
 
-  console.log("Hello World"); //this is a function body
+  console.log("Hello World");  //this is a function body
 }
 
 greet("Hello World"); //this is a function call

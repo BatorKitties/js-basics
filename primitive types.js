@@ -45,7 +45,7 @@ let thisColor = null; //null literal we use null when we want to clear the value
 
 //Return an English translated sentence of the passed binary string.
 
-//The binary string will be space separated.
+ //The binary string will be space separated.
 
 //were using strings and numbers here which are all primitive types
 
