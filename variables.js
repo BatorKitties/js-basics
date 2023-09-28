@@ -2,7 +2,7 @@
 // variable practice
 let name = "Bator"; //name is a variable bator is a value doing = assigns the value to the variable
 
-//full format
+ //full format
 let firstName = "Bator";
 
 let lastName = "Michael";
