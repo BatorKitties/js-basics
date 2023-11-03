@@ -1,1 +1,1 @@
-# js-basics
+# JS-basics
